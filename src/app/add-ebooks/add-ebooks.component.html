@@ -1,0 +1,146 @@
+<div class="page-titles">
+    <ol class="breadcrumb">
+        <li><h5 class="bc-title">Add EBook</h5></li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0)">
+            <!-- <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.125 6.375L8.5 1.41667L14.875 6.375V14.1667C14.875 14.5424 14.7257 14.9027 14.4601 15.1684C14.1944 15.4341 13.8341 15.5833 13.4583 15.5833H3.54167C3.16594 15.5833 2.80561 15.4341 2.53993 15.1684C2.27426 14.9027 2.125 14.5424 2.125 14.1667V6.375Z" 
+                stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.375 15.5833V8.5H10.625V15.5833" stroke="#2C2C2C" 
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg> -->
+             </a>
+        </li>
+        <!-- <li class="breadcrumb-item active"><a href="javascript:void(0)">Projects</a></li> -->
+    </ol>
+        <a class="text-warning fs-13" data-bs-toggle="offcanvas" href="javascript:void(0)" 
+        role="button" aria-controls="offcanvasExample1" data-bs-toggle="modal" data-bs-target="#basicModal">+ Add EBook</a>
+</div>
+<div style="margin: 20px;">
+    <div class="row">
+        <div class="card dz-card" id="list-tab">
+            <div class="card-header flex-wrap d-flex justify-content-between le">
+                <h4 class="card-title">List of EBooks</h4>
+                <hr/>
+                <div class="container-fluid mh-auto">
+                    <div class="row">
+                        <div *ngFor="let us of listofEBOOK" class="col-xl-3 col-md-3 col-6">
+                            <div class="card  blog-card">
+                                <div class="card-body text-center">
+                                    <div class="badge-container">
+                                        <a href="javascript:void(0)" 
+                                        class="badge badge-circle" style="color:orange" (click)="getdeleteebook(us.id)">X</a>
+                                    </div>
+                                    <img src="./assets/images/books.png" alt=""> 
+                                    <h4>{{us.subject.subject_name | titlecase}}</h4>
+                                    <!-- <h4>{{us.topic.topic_name | titlecase}}</h4> -->
+                                    <span class="badge badge-warning border-0 badge-sm mt-1"
+                                    data-bs-toggle="modal" data-bs-target="#basicModal1" 
+                                   style="color:white;padding-bottom: 2px;cursor: pointer;"  (click)="getViewEBook(us.id)" >Change EBook</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--scnd-->
+                        <!-- <div class="col-xl-3 col-md-3 col-6">
+                            <div class="card  blog-card">
+                                <div class="card-body text-center">
+                                    <img src="./assets/images/books.png" alt=""> 
+                                    <h4>Education</h4>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!--end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal strt-->
+<div class="modal fade" id="basicModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add EBook</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+               <form [formGroup]="getAddedEBook" (ngSubmit)="getAddedEbook(getAddedEBook.value)">
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Chapter</label>
+                    <div class="col-sm-9">
+                        <select #dropdown class="me-sm-2 default-select form-control wide" 
+                        id="inlineFormCustomSelect"  formControlName="chapter_id"
+                        (change)="getChapterDropdown(dropdown.value)">
+                            <!-- <option selected>Choose...</option> -->
+                            <option value="" disabled selected>Please select chapter name</option>
+                            <option selected *ngFor="let option1 of listOFChapter" [value]="option1.id">
+                                {{option1.chapter_name}}</option>
+                           
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label" >Topic Name</label>
+                    <div class="col-sm-9">
+                        <select #dropdown class="me-sm-2 default-select form-control wide" 
+                        id="inlineFormCustomSelect"  formControlName="topic_id"
+                        (change)="getTopicsDropdown(dropdown.value)">
+                            <!-- <option selected>Choose...</option> -->
+                            <option value="" disabled selected>Please select topic name</option>
+                            <option  *ngFor="let option2 of newTopicList" [value]="option2.id">
+                                {{option2.topic_name}}</option><!--selected-->
+                           
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Description</label>
+                    <div class="col-sm-9">
+                         <textarea class="form-txtarea form-control"
+                         formControlName="description" rows="3" id="comment"></textarea>
+                    </div>
+                   
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">Add EBook</button>
+                </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!--scnd modal-->
+<div class="modal fade" id="basicModal1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update EBook</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+               <form [formGroup]="getUpdated" (ngSubmit)="getEBookUpdate(getUpdated.value)">
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Description</label>
+                    <div class="col-sm-9">
+                         <textarea class="form-txtarea form-control"
+                         formControlName="description" rows="3" id="comment"></textarea>
+                    </div>
+                   
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"data-bs-dismiss="modal">Change EBook</button>
+                </div>
+               </form>
+            </div>
+           
+        </div>
+    </div>
+</div>

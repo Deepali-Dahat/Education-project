@@ -1,0 +1,11 @@
+.ButtonStyle button{
+    margin-left: 50px;
+}
+.ScndButton button{
+    padding: 5px;
+}
+.badge-container {
+    position: absolute;
+    top: 0px; /* Adjust the value to control the vertical positioning */
+    right: 0px; /* Adjust the value to control the horizontal positioning */
+}

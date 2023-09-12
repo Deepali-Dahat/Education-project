@@ -1,0 +1,125 @@
+<div class="page-titles">
+    <ol class="breadcrumb">
+        <li>
+            <h5 class="bc-title">Assignments</h5>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0)">
+                <!-- <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2.125 6.375L8.5 1.41667L14.875 6.375V14.1667C14.875 14.5424 14.7257 14.9027 14.4601 15.1684C14.1944 15.4341 13.8341 15.5833 13.4583 15.5833H3.54167C3.16594 15.5833 2.80561 15.4341 2.53993 15.1684C2.27426 14.9027 2.125 14.5424 2.125 14.1667V6.375Z"
+                        stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M6.375 15.5833V8.5H10.625V15.5833" stroke="#2C2C2C" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg> -->
+                 </a>
+        </li>
+        <!-- <li class="breadcrumb-item active"><a href="javascript:void(0)">Projects</a></li> -->
+    </ol>
+    <!-- <a class="text-warning fs-13" data-bs-toggle="offcanvas" href="javascript:void(0)" 
+        role="button" aria-controls="offcanvasExample1" 
+        data-bs-toggle="modal" data-bs-target="#basicModal1">+ Add Assignments</a> -->
+</div>
+<div style="margin: 20px;">
+    <div class="row">
+        <div class="card dz-card" id="list-tab">
+            <div class="card-header flex-wrap d-flex justify-content-between le">
+                <h4 class="card-title">List of Assignments</h4>
+                <hr /> 
+                <div class="container-fluid mh-auto">
+                    <h6>Ongoing Assignments</h6>
+                    <div class="row">
+                        <div *ngFor="let us of listOfongoingAssignment" class="col-xl-3  col-lg-6 col-sm-6">
+                            <div class="card bg-warning overflow-hidden">
+                                <div class="card-body">
+                                    <div class="students d-flex align-items-center justify-content-between flex-wrap">
+                                        
+                                        <div>
+                                            <h4>{{us.subject_name | titlecase}}</h4>
+                                            <h5 style=" max-width: 80px; 
+                                            display: block;
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis; 
+                                            word-wrap: break-word; ">{{us.title | titlecase}}</h5>
+                                            <span><i class="far fa-calendar-plus me-2"></i>{{us.submission_date}}</span>
+                                             <!-- <div style="color:orange;border: 1px solid white;border-radius: 10px;
+                                             padding:0px 2px 0px 2px;background-color: white;
+                                             margin: 2px;cursor: pointer;" 
+                                             
+                                             [routerLink]="">Add Result</div> -->
+                                        </div>
+                                        <div style="width:60px;height: 60px;">
+                                            <img src="./assets/images/books.png" alt="">
+                                            <!-- <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0)">
+                                                <path d="M59.0284 17.8807L30.7862 3.81817C30.2918 3.57103 29.7082 3.57103 29.2138 3.81817L0.971632 17.8807C0.375968 18.1794 3.05176e-05 18.787 3.05176e-05 19.4531C3.05176e-05 20.1192 0.375968 20.7268 0.971632 21.0255L29.2138 35.088C29.461 35.2116 29.7305 35.2734 30 35.2734C30.2696 35.2734 30.5391 35.2116 30.7862 35.088L59.0284 21.0255C59.6241 20.7268 60 20.1192 60 19.4531C60 18.787 59.6241 18.1794 59.0284 17.8807Z" fill="white"/>
+                                                <path d="M56.4844 46.1441V26.2285L52.9688 27.9863V46.1441C50.9271 46.8722 49.4532 48.805 49.4532 51.0937V54.6093C49.4532 55.5809 50.2394 56.3671 51.211 56.3671H58.2422C59.2138 56.3671 60 55.5809 60 54.6093V51.0937C60 48.805 58.526 46.8722 56.4844 46.1441Z" fill="white"/>
+                                                <path d="M32.3587 38.2329C31.6308 38.5967 30.8154 38.789 30 38.789C29.1846 38.789 28.3692 38.5967 27.6414 38.2329L10.5469 29.7441V33.5156C10.5469 40.4147 19.1578 45.8203 30 45.8203C40.8422 45.8203 49.4532 40.4147 49.4532 33.5156V29.7441L32.3587 38.2329Z" fill="white"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath >
+                                                <rect width="60" height="60" fill="white"/>
+                                                </clipPath>
+                                                </defs>
+                                            </svg> -->
+    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Received Assignments</h6>
+                    <div class="row">
+                        <div *ngFor="let us of receivedAssign" class="col-xl-3  col-lg-6 col-sm-6">
+                            <div class="card bg-warning overflow-hidden">
+                                <div class="card-body">
+                                    <div class="students d-flex align-items-center justify-content-between flex-wrap">
+                                        
+                                        <div>
+                                            <h4 style=" max-width: 80px; 
+                                            display: block;
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis; 
+                                            word-wrap: break-word; ">{{us.subject_name | titlecase}}</h4>
+                                            <h5 style=" max-width: 80px; 
+                                            display: block;
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis; 
+                                            word-wrap: break-word; ">{{us.title | titlecase}}</h5>
+                                            <span><i class="far fa-calendar-plus me-2"></i>{{us.submission_date}}</span>
+                                             <!-- <div style="color:orange;border: 1px solid white;border-radius: 10px;
+                                             padding:0px 2px 0px 2px;background-color: white;
+                                             margin: 2px;cursor: pointer;" 
+                                             (click)="getAssignmentNewId(us.assignment_id)"
+                                             [routerLink]="">Add Result</div> -->
+                                        </div>
+                                        <div style="width:60px;height: 60px;">
+                                            <img src="./assets/images/books.png" alt=""> 
+                                            <!-- <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0)">
+                                                <path d="M59.0284 17.8807L30.7862 3.81817C30.2918 3.57103 29.7082 3.57103 29.2138 3.81817L0.971632 17.8807C0.375968 18.1794 3.05176e-05 18.787 3.05176e-05 19.4531C3.05176e-05 20.1192 0.375968 20.7268 0.971632 21.0255L29.2138 35.088C29.461 35.2116 29.7305 35.2734 30 35.2734C30.2696 35.2734 30.5391 35.2116 30.7862 35.088L59.0284 21.0255C59.6241 20.7268 60 20.1192 60 19.4531C60 18.787 59.6241 18.1794 59.0284 17.8807Z" fill="white"/>
+                                                <path d="M56.4844 46.1441V26.2285L52.9688 27.9863V46.1441C50.9271 46.8722 49.4532 48.805 49.4532 51.0937V54.6093C49.4532 55.5809 50.2394 56.3671 51.211 56.3671H58.2422C59.2138 56.3671 60 55.5809 60 54.6093V51.0937C60 48.805 58.526 46.8722 56.4844 46.1441Z" fill="white"/>
+                                                <path d="M32.3587 38.2329C31.6308 38.5967 30.8154 38.789 30 38.789C29.1846 38.789 28.3692 38.5967 27.6414 38.2329L10.5469 29.7441V33.5156C10.5469 40.4147 19.1578 45.8203 30 45.8203C40.8422 45.8203 49.4532 40.4147 49.4532 33.5156V29.7441L32.3587 38.2329Z" fill="white"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath >
+                                                <rect width="60" height="60" fill="white"/>
+                                                </clipPath>
+                                                </defs>
+                                            </svg> -->
+    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

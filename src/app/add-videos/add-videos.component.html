@@ -1,0 +1,251 @@
+<div class="page-titles">
+    <ol class="breadcrumb">
+        <li><h5 class="bc-title">Add Topics</h5></li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0)">
+            <!-- <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.125 6.375L8.5 1.41667L14.875 6.375V14.1667C14.875 14.5424 14.7257 14.9027 14.4601 15.1684C14.1944 15.4341 13.8341 15.5833 13.4583 15.5833H3.54167C3.16594 15.5833 2.80561 15.4341 2.53993 15.1684C2.27426 14.9027 2.125 14.5424 2.125 14.1667V6.375Z" 
+                stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.375 15.5833V8.5H10.625V15.5833" stroke="#2C2C2C" 
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg> -->
+             </a>
+        </li>
+        <!-- <li class="breadcrumb-item active"><a href="javascript:void(0)">Projects</a></li> -->
+    </ol>
+        <a class="text-warning fs-13" data-bs-toggle="offcanvas" href="javascript:void(0)" 
+        role="button" aria-controls="offcanvasExample1" data-bs-toggle="modal" data-bs-target="#basicModal">+ Add Topics</a>
+</div>
+<div style="margin: 20px;">
+    <div class="row">
+        <div class="card dz-card" id="list-tab">
+            <div class="card-header flex-wrap d-flex justify-content-between le">
+                <h4 class="card-title">List of Topics</h4>
+                <hr/>
+                <div class="container-fluid mh-auto">
+                    <div class="row">
+                        <div *ngFor="let us of newTopicList" class="col-xl-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="new-arrival-product">
+                                        <div class="badge-container">
+                                            <a href="javascript:void(0)" 
+                                            class="badge badge-circle text-warning" (click)="getTopicdelete(us.id)">X</a>
+                                        </div>
+                                        <div class="new-arrivals-img-contnent" style="margin-top:10px">
+                                            
+                                            <video class="img-fluid" controls>
+                                                <source [src]="defaultVideoUrl" type="video/mp4">
+                                                <!--c:\Users\HP\Downloads\cherrys_6891522\Cherrys_2.mp4,,,,[src]="us.material ? us.material : defaultVideoUrl"-->
+                                            </video>
+                                             <!-- {{us.material}} -->
+                                            <!-- <img class="img-fluid" src="./assets/images/product/1.jpg" alt=""> -->
+                                        </div>
+                                        <div class="new-arrival-content text-center mt-3 text-warning">
+                                            <h4><a href="javascript:void(0)" class="text-warning">{{us.title}}</a></h4>
+                                            
+                                            <!-- <span class="price"> -->
+                                                <span class="badge badge-warning border-0 badge-sm"
+                                            style="padding-bottom: 5px;" data-bs-toggle="modal" data-bs-target="#basicModal2"
+                                            (click)="updateTopic(us.id)">Edit Topic</span>
+                                            <!-- </span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--scnd-->
+                        <!-- <div class="col-xl-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="new-arrival-product">
+                                        <div class="new-arrivals-img-contnent">
+                                            <img class="img-fluid" src="./assets/images/product/2.jpg" alt="">
+                                        </div>
+                                        <div class="new-arrival-content text-center mt-3">
+                                            <h4><a href="ecom-product-detail.html">Striped Dress</a></h4>
+                                            
+                                            <span class="price">$159.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!--scnd  ends-->
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal-->
+<div class="modal fade" id="basicModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Topics</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addTopics" (ngSubmit)="getaddedtopic(addTopics.value)">
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Title</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control input-default" formControlName="title"
+                            placeholder="Enter topic name">
+                       </div>
+                       
+                        
+                    </div>
+                    
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Description</label>
+                        <div class="col-sm-9">
+                             <textarea class="form-txtarea form-control"
+                             formControlName="description" rows="3" id="comment"></textarea>
+                        </div>
+                       
+                        
+                    </div>
+                   
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Chapter</label>
+                        <div class="col-sm-9">
+                            <select #dropdown class="me-sm-2 default-select form-control wide" 
+                            id="inlineFormCustomSelect"  formControlName="chapter_id"
+                            (change)="getChapterDropdown(dropdown.value)">
+                                <!-- <option selected>Choose...</option> -->
+                                <option selected *ngFor="let option1 of listOFChapter" [value]="option1.id">
+                                    {{option1.chapter_name}}</option>
+                               
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Topic Name</label>
+                        <div class="col-sm-9">
+                            <select #dropdown class="me-sm-2 default-select form-control wide" 
+                            id="inlineFormCustomSelect"  formControlName="topic_name"
+                            (change)="getTopicsDropdown(dropdown.value)">
+                                <!-- <option selected>Choose...</option> -->
+                                <option selected *ngFor="let option1 of newTopicList" [value]="option1.topic_name">
+                                    {{option1.topic_name}}</option>
+                               
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label  class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <button type="button" class="btn btn-rounded btn-warning"(click)="selectFile()"><span
+                                class="btn-icon-start text-warning">
+                                <i class="fa fa-download color-warning"></i>
+                            </span>From Video</button>
+                            <input type="file" #fileInput formControlName="material" style="display: none;" 
+                            (change)="uploadFile($event)" accept="video/mp4,video/webm" required><!--accept="video/*"-->
+                           
+                        </div>
+                    </div>
+                    <!--for video-->
+                    <div *ngIf="selectedFileName">
+                        <p>Selected File: {{ selectedFileName }}</p>
+                      </div>
+                    <!-- <div *ngIf=" defaultVideoUrl">
+                        <video width="150" height="150" controls>
+                          <source [src]="defaultVideoUrl" type="video/mp4">
+                        </video>
+                      </div> -->
+                    <!--end-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">Upload Video</button>
+                    </div>
+                </form>
+
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!--second module-->
+<div class="modal fade" id="basicModal2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Topic</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="getEdit" (ngSubmit)="getUpdateTopic(getEdit.value)">
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Title</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control input-default" formControlName="title"
+                            placeholder="Enter topic name">
+                       </div>
+                       
+                        
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Description</label>
+                        <div class="col-sm-9">
+                             <textarea class="form-txtarea form-control"
+                             formControlName="description" rows="3" id="comment"></textarea>
+                        </div>
+                       
+                        
+                    </div>
+                    <!-- <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Chapter</label>
+                        <div class="col-sm-9">
+                            <select #dropdown class="me-sm-2 default-select form-control wide" 
+                            id="inlineFormCustomSelect"  formControlName="chapter_id"
+                            (change)="getChapterDropdown(dropdown.value)">
+                               
+                                <option selected *ngFor="let option1 of listOFChapter" [value]="option1.id">
+                                    {{option1.chapter_name}}</option>
+                               
+                            </select>
+                        </div>
+                    </div> -->
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Topic Name</label>
+                        <div class="col-sm-9">
+                            <select #dropdown class="me-sm-2 default-select form-control wide" 
+                            id="inlineFormCustomSelect"  formControlName="topic_name"
+                            (change)="getTopicsDropdown(dropdown.value)">
+                                <!-- <option selected>Choose...</option> -->
+                                <option selected *ngFor="let option1 of newTopicList" [value]="option1.topic_name">
+                                    {{option1.topic_name}}</option>
+                               
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label  class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <button type="button" class="btn btn-rounded btn-warning"(click)="selectFile()"><span
+                                class="btn-icon-start text-warning">
+                                <i class="fa fa-download color-warning"></i>
+                            </span>From Video</button>
+                            <input type="file" #fileInput formControlName="material" style="display: none;" 
+                            (change)="uploadFile($event)" accept="video/mp4,video/webm" required><!--accept="video/*"-->
+                           
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update Topic</button>
+                    </div>
+                </form>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>

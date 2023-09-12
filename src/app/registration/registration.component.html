@@ -1,0 +1,314 @@
+<div class="StyleForm">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Registration Form</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <form [formGroup]="GetRegi" (ngSubmit)="getRegistration(GetRegi.value)"
+                                    class="needs-validation" novalidate>
+                                    <div class="row">
+
+                                        <div class="col-xl-6">
+                                            <h6 class="HeaderStyle">Personal Details</h6>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Name
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" formControlName="first_name"
+                                                        id="validationCustom01" placeholder="Enter a name.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your name.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom02">Email
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" formControlName="email_id"
+                                                        id="validationCustom02" placeholder="Your valid email.."
+                                                        required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter a Email.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom03">Password
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="password" class="form-control"
+                                                        formControlName="password" id="validationCustom03"
+                                                        placeholder="Choose a safe one.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter a password.
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom03">Confirm
+                                                    Password
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="password" class="form-control"
+                                                        formControlName="confirm_password" id="validationCustom03"
+                                                        placeholder="Choose a safe one.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your confirm password.
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- <hr/> -->
+                                        <div class="col-xl-6" style="margin-top: 30px;">
+                                            <!-- <h6>Education Details</h6> -->
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom05">
+                                                    Language Know
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="default-select wide form-control"
+                                                        [(ngModel)]="SelectedLanguage" formControlName="language"
+                                                        (change)="onSelectionBoard($event)" id="validationCustom05">
+                                                        <option data-display="Select">Please select</option>
+                                                        <option value="English">English</option>
+                                                        <option value="Marathi">Marathi </option>
+                                                        <option value="Hindi">Hindi</option>
+                                                        <option value="Maths">Maths</option>
+                                                        <option value="Science">Science</option>
+                                                        <option value="History">History</option>
+
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Please select a one.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row ">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom06">Date Of
+                                                    Birth
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+
+                                                <!--strt-->
+                                                <div class="col-lg-6 ">
+                                                    <div class="input-group clockpicker">
+                                                        <input type="date" class="form-control" value="09:30">
+                                                        <span class="input-group-text">
+                                                            
+                                                        </span>
+                                                    </div>
+                                                    <!-- <div class="input-group">
+                                                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                                        formControlName="DOB" ngbDatepicker #d="ngbDatepicker" />
+                                                        <button class="btn btn-outline-secondary bi bi-calendar3"
+                                                            (click)="d.toggle()" type="button"></button>
+                                                    </div> -->
+                                                    <!-- <input type="text" class="form-control" formControlName="DOB" placeholder="2017-06-04" 
+                                                    id="mdate"> -->
+                                                </div>
+                                                <!--end-->
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom07">
+                                                    Address
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" formControlName="address"
+                                                        id="validationCustom07" placeholder="Enter your address"
+                                                        required>
+                                                    <div class="invalid-feedback"><!--http://example.com-->
+                                                        Please enter your address.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom08">
+                                                    Phone number
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" formControlName="phone_no"
+                                                        id="validationCustom08" placeholder="212-999-0000" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter a phone no.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                        </div>
+                                        <hr />
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <h6 class="HeaderStyle">Educational Details</h6>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="validationCustom01">Qualification
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        placeholder="Enter your Qualification.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your Qualification.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="validationCustom01">Institude
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        placeholder="Enter your institude name.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter institude name.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6" style="margin-top:30px;">
+
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Board
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        placeholder="Enter board.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your board.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="validationCustom01">Marks/Grade
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        placeholder="Enter your marks & grade.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your marks & grade.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <h6 class="HeaderStyle">Experience</h6>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Period
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        placeholder="Enter your duration.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your marks & grade.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="validationCustom01">Organization and address
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        placeholder="Enter your Organization and address.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your marks & grade.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xl-6" style="margin-top: 30px;">
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Personal
+                                                    Achievements(if any)
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        placeholder="Enter your personal achievements.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your marks & grade.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="validationCustom01">Designation
+                                                    <!-- <span class="text-danger">*</span> -->
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        placeholder="Enter your designation.." required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your marks & grade.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <h6 class="HeaderStyle">Upload Documents</h6>
+                                        <!-- <div class="email-right-box ms-0 "> -->
+                                        <!-- <div class="d-flex justify-content-center align-items-center"> -->
+                                        <div class="compose-content">
+                                            <div class="dropzone d-flex justify-content-center align-items-center">
+                                                <div class="fallback ">
+                                                    <input name="file" type="file" multiple>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- </div> -->
+                                        <!-- </div> -->
+                                        <hr />
+                                        <div class="mb-3 row">
+                                            <div class="col-lg-7 ms-auto">
+                                                <button type="submit"
+                                                    class="btn btn-rounded btn-warning">Register</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+

@@ -1,0 +1,14 @@
+.left-aligned-link {
+    display: block;
+    margin-top: 5px; /* Adjust this value to control the top margin */
+    margin-left: 0; /* Reset left margin to make it align to the left */
+  }
+  
+  .left-aligned-link:hover {
+    text-decoration: none;
+  }
+  .badge-container {
+    position: absolute;
+    top: 0px; /* Adjust the value to control the vertical positioning */
+    right: 0px; /* Adjust the value to control the horizontal positioning */
+}

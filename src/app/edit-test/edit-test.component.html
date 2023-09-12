@@ -1,0 +1,121 @@
+<div class="page-titles">
+    <ol class="breadcrumb">
+        <li>
+            <h5 class="bc-title">Edit Test</h5>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0)">
+                <!-- <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2.125 6.375L8.5 1.41667L14.875 6.375V14.1667C14.875 14.5424 14.7257 14.9027 14.4601 15.1684C14.1944 15.4341 13.8341 15.5833 13.4583 15.5833H3.54167C3.16594 15.5833 2.80561 15.4341 2.53993 15.1684C2.27426 14.9027 2.125 14.5424 2.125 14.1667V6.375Z"
+                        stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M6.375 15.5833V8.5H10.625V15.5833" stroke="#2C2C2C" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg> -->
+                 </a>
+        </li>
+        <!-- <li class="breadcrumb-item active"><a href="javascript:void(0)">Projects</a></li> -->
+    </ol>
+
+</div>
+<div style="margin: 10px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Edit Test</h4>
+                    </div>
+                    <div class="card-body">
+                       <form [formGroup]="getUpdateTest" (ngSubmit)="getUpdatedTest(getUpdateTest.value)">
+                        <div class="row">
+                           <div class="col-md-6">
+                            <div class="mb-2 row">
+                                <label class="col-sm-3 col-form-label">Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" formControlName="title"  
+                                    placeholder="Please Enter a Title">
+                                </div>
+                            </div>
+                           </div>
+                           <div class="col-md-6">
+                            <div class="mb-2 row">
+                                <label class="col-sm-3 col-form-label">Exam Date</label>
+                                <div class="col-sm-9">
+                                    <input name="datepicker" class="datepicker-default form-control" id="datepicker"
+                                    formControlName="exam_date">
+                                </div>
+                            </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-2 row">
+                                    <label class="col-sm-3 col-form-label">Duration</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group clockpicker">
+                                            <input type="text" class="form-control"  formControlName="duration">
+                                            <span class="input-group-text"><i
+                                                class="fas fa-clock"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2 row">
+                                    <label class="col-sm-3 col-form-label">Duration End</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group clockpicker">
+                                            <input type="text" class="form-control"  formControlName="end_duration">
+                                            <span class="input-group-text"><i
+                                                class="fas fa-clock"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="container-fluid">
+                                <div formArrayName="test_questions">
+                                    <div class="row" *ngFor="let questionControl of questionsFormArray.controls;let i = index; let even = even">
+                                        <div >
+                                            <div class="col-xl-12">
+                                                <div class="mb-3 row">
+                                                    <label class="col-lg-4 col-form-label" for="validationCustom06">
+                                                        Test Question {{i+1}} :
+
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control"
+                                                        [formControl]="getQuestionControl(i)"
+                                                            placeholder="Please Enter a Title"
+                                                            [value]="questionControl.value.question || '' ">
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    <a class="text-warning fs-13" data-bs-toggle="offcanvas"
+                                    href="javascript:void(0)" role="button" aria-controls="offcanvasExample1"
+                                    style="margin-left: 500px;" (click)="EditedQuestion()">+ Add Question</a>
+                                </div> 
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="mb-3 row">
+                            <div class="col-lg-8 ms-auto">
+                                <button type="submit" class="btn btn-warning">Update Test</button>
+                            </div>
+                        </div>
+                       </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
