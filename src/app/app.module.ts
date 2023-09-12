@@ -53,7 +53,9 @@ import { AllPlaceholderDirective } from './all-placeholder.directive';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,FormsModule,
-    HttpClientModule,PdfViewerModule,
+    HttpClientModule,
+    PdfViewerModule,
+
     NgxExtendedPdfViewerModule 
   ],
   providers: [],

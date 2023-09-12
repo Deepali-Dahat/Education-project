@@ -16,6 +16,7 @@
             "outputPath": "dist/notebook",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "allowedCommonJsDependencies": ["pdfjs-dist/build/pdf", "pdfjs-dist/web/pdf_viewer"],
             "polyfills": [
               "zone.js"
             ],
