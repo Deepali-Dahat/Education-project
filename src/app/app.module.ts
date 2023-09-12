@@ -12,7 +12,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { RegistrationComponent } from './registration/registration.component';
 import { AddVideosComponent } from './add-videos/add-videos.component';
 import { AddNotesComponent } from './add-notes/add-notes.component';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+//import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { ViewNotesComponent } from './view-notes/view-notes.component';
 import { NoticeBoardComponent } from './notice-board/notice-board.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
@@ -56,7 +56,7 @@ import { AllPlaceholderDirective } from './all-placeholder.directive';
     HttpClientModule,
     PdfViewerModule,
 
-    NgxExtendedPdfViewerModule 
+    //NgxExtendedPdfViewerModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
